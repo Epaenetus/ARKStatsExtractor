@@ -210,7 +210,7 @@ namespace ARKBreedingStats
 
             // check for updates
             DateTime lastUpdateCheck = Properties.Settings.Default.lastUpdateCheck;
-            if (DateTime.Now.AddDays(-7) > lastUpdateCheck)
+            //if (DateTime.Now.AddDays(-7) > lastUpdateCheck)
                 checkForUpdates(true);
 
             //// TODO: debug-numbers
@@ -1425,15 +1425,15 @@ namespace ARKBreedingStats
                 string filename = "values.json";
 
                 remoteFileVer = 0;
-                if (Int32.TryParse(remoteVers[0], out remoteFileVer) && Values.V.version < remoteFileVer)
-                {
+                //if (Int32.TryParse(remoteVers[0], out remoteFileVer) && Values.V.version < remoteFileVer)
+                //{
                     // backup the current version (to safe user added custom commands)
                     if (MessageBox.Show("There is a new version of the values-file \"" + filename + "\", do you want to make a backup of the current file?\nThis is recommended if you have changed the file manually and want to keep these changes.", "Backup old file?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         System.IO.File.Copy(filename, filename + "_backup_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json");
                     // Download the Web resource and save it into the current filesystem folder.
                     myWebClient.DownloadFile(remoteUri + filename, filename);
                     updated = true;
-                }
+                //}
             }
             catch (System.Net.WebException ex)
             {

@@ -173,5 +173,13 @@ namespace ARKBreedingStats
                 }
             }
         }
-    }
+
+		private void button1_Click_1(object sender, EventArgs e)
+		{
+            dateTimePickerTimerFinish.Value = DateTime.Now.Add( new TimeSpan( decimal.ToInt32( this.numericUpDown1.Value ), 
+																			  decimal.ToInt32( this.numericUpDown2.Value ), 
+																			  decimal.ToInt32( this.numericUpDown3.Value ) ) );
+
+		}
+	}
 }
